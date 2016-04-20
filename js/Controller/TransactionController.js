@@ -8,8 +8,10 @@ var TransactionController= function($scope){
 	// Flag to signal whether user can load more data or not
 	var loadMoreFlag = 0;
 	
+	// Assign empty string in order to avoid undefined value
 	$scope.searchTerm = '';
 	
+	// Sample data 1
 	var dummyData1 = [
 		{
 			Date: '21/04/2016',
@@ -49,6 +51,7 @@ var TransactionController= function($scope){
 		}
 	];
 	
+	// Sample data 2 for load more function
 	var dummyData2 = [
 		{
 			Date: '20/03/2016',
@@ -73,7 +76,16 @@ var TransactionController= function($scope){
 	$scope.transactions = dummyData1;
 	
 	$scope.searchDesc = function(){
-		$scope.transactions = dummyData1;
+		/*
+		*	Whenever additional data is not loaded, use only dummyData1 for search function
+		*	If additional data is loaded, then concat dummyData2 to scope.transactions	
+		*/
+		if(loadMoreFlag !== 1){
+			$scope.transactions = dummyData1;
+		}else{
+			$scope.transactions = dummyData1.concat(dummyData2);
+		}
+		
 		var searchResult = $.grep($scope.transactions, function (item) { return item.Description.toLowerCase().indexOf($scope.searchTerm) >= 0 });
 		$scope.transactions = searchResult;
 	}
@@ -82,7 +94,8 @@ var TransactionController= function($scope){
 		// Use a flag to load. 
 		// In real world scenario, we can use $http.get to get the data and pass the date and number of data needed as parameters
 		if(loadMoreFlag !== 1){
-			$.merge($scope.transactions, dummyData2); 
+			$scope.additionalData = dummyData2;
+			$scope.transactions = $scope.transactions.concat($scope.additionalData);
 			loadMoreFlag = 1;
 		}
 	}

@@ -6,8 +6,7 @@ module.exports = function(grunt) {
 				src: [
 					'js/lib/Jquery/*.js',
 					'js/lib/Bootstrap/*.js',
-					'js/lib/Angular/*.js', 
-					'js/lib/JqueryUI/*.js',
+					'js/lib/Angular/angular.min.js', 
 					'js/Controller/*.js',
 					'js/Directive/**/*.js',
 					'js/AngularApp.js',

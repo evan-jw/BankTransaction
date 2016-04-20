@@ -1,12 +1,17 @@
 {
   "name": "transaction-project",
   "version": "0.1.0",
+  "scripts": {
+    "test": "karma start karma.conf.js"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-concat": "^1.0.0",
     "grunt-contrib-cssmin": "^1.0.1",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
-    "grunt-contrib-watch": "^1.0.0"
+    "grunt-contrib-watch": "^1.0.0",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.3"
   }
 }
