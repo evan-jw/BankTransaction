@@ -86,7 +86,7 @@ var TransactionController= function($scope){
 			$scope.transactions = dummyData1.concat(dummyData2);
 		}
 		
-		var searchResult = $.grep($scope.transactions, function (item) { return item.Description.toLowerCase().indexOf($scope.searchTerm) >= 0 });
+		var searchResult = $.grep($scope.transactions, function (item) { return item.Description.toLowerCase().indexOf($scope.searchTerm.toLowerCase()) >= 0 });
 		$scope.transactions = searchResult;
 	}
 	
