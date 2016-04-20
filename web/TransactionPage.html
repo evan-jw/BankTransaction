@@ -6,63 +6,72 @@
 </head>
 <body ng-controller="TransactionController">
 	<div class="top-banner">
-		<div class="col-lg-6 header-padding header-style">
-			Just-A-Bank
+		<div class="header-padding header-style">
+			Bank
 		</div>
-		<div class="col-lg-2 text-center top-menu active">
+		<div class="text-center top-menu active hidden-xs">
 			Accounts
 		</div>
-		<div class="col-lg-2 text-center top-menu">
+		<div class="text-center top-menu hidden-xs">
 			Menu 1
 		</div>
-		<div class="col-lg-2 text-center top-menu">
+		<div class="text-center top-menu hidden-xs">
 			Menu 2
 		</div>
+		<div class="text-center top-menu visible-xs">
+			<span>Menu</span>
+			<div class="text-center sub-menu-xs visible-xs">
+				<div>Account</div>
+				<div>Menu 1</div>
+				<div>Menu 2</div>
+			</div>
+		</div>
+		
 	</div>
 	<div class="sub-heading-1">
-		<div class="col-lg-12 header-padding">
+		<div class="header-padding grid-sub-header-1">
 			Transaction History
 		</div>
 	</div>
 	<div class="sub-heading-2">
-		<div class="col-lg-6 header-padding">
+		<div class="header-padding grid-account">
 			<span class="special-char">Savings Account</span>
 			<br/>
 			<span>{{accountNo}}</span>
 		</div>
-		<div class="col-lg-3 text-center">
+		<div class="text-center grid-balance">
 			<span>Current Balance</span>
 			<br/>
 			<span class="special-char">{{curBal}}</span>
 		</div>
-		<div class="col-lg-3 text-center">
+		<div class="text-center grid-balance">
 			<span>Available Balance<span>
 			<br/>
 			<span class="special-char">{{availBal}}</span>
 		</div>
 	</div>
 	<div class="sub-heading-3">
-		<div class="col-lg-12 header-padding">
+		<div class="header-padding grid-search-box">
 			<span>Search for description</span>
 			<br/>
 			<input type="text" class="form-control search-box" ng-model="searchTerm" /> <span class="search-btn" ng-click="searchDesc()">Search</span>
 		</div>
 	</div>
 	<div class="container">
-		<div class="col-lg-12 table-header-container">
-			<div class="col-lg-2 table-head">Date</div>
-			<div class="col-lg-6 table-head">Description</div>
-			<div class="col-lg-2 table-head">Debit/Credit</div>
-			<div class="col-lg-2 table-head">Balance</div>
+		<div class="table-header-container">
+			<div class="table-head grid-date">Date</div>
+			<div class="table-head grid-desc">Description</div>
+			<div class="table-head grid-transaction">Debit/Credit</div>
+			<div class="table-head grid-balance">Balance</div>
 		</div>
-		<div class="col-lg-12 transaction" ng-style="$index === 0 ? {'border-top':'1px solid #D8D7D7'} : {}" ng-repeat="transaction in transactions track by $index">
-			<div class="col-lg-2">{{transaction.Date}}</div>
-			<div class="col-lg-6">{{transaction.Description}}</div>
-			<div class="col-lg-2">{{transaction.Transaction}}</div>
-			<div class="col-lg-2">{{transaction.Balance}}</div>
+		<div class="transaction" ng-style="$index === 0 ? {'border-top':'1px solid #D8D7D7'} : {}" ng-repeat="transaction in transactions track by $index">
+			<div class="grid-date">{{transaction.Date}}</div>
+			<div class="grid-desc">{{transaction.Description}}</div>
+			<div class="grid-transaction">{{transaction.Transaction}}</div>
+			<div class="grid-balance">{{transaction.Balance}}</div>
 		</div>
 		
-		<div class="col-lg-12 text-center search-btn load-more" ng-click="loadMore()">
+		<div class="text-center search-btn load-more" ng-click="loadMore()">
 			Load more transaction
 		</div>
 
