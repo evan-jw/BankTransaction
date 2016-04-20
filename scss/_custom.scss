@@ -56,7 +56,12 @@
 	}
 }
 
+.force-pad-left{
+	padding-left:20px;
+}
+
 .sub-header{
+	@extend .force-pad-left;
 	height: 45px;
     padding-top: 5px;
     border-bottom: 1px solid $default-border-color;
@@ -78,13 +83,13 @@
 	@extend .sub-header;
 	height:56px;
 	.grid-account{
-		@include make-xs-column(6);
+		@include make-xs-column(12);
 		@include make-sm-column(6);
 		@include make-md-column(6);
 		@include make-lg-column(6);
 	}
 	.grid-balance{
-		@include make-xs-column(3);
+		@include make-xs-column(12);
 		@include make-sm-column(3);
 		@include make-md-column(3);
 		@include make-lg-column(3);
@@ -129,7 +134,6 @@
 	@include transaction-border(1px, solid, $default-border-color);
 	padding-top: 10px;
     padding-bottom: 10px;
-	
 }
 
 .transaction:first-child{
@@ -137,32 +141,100 @@
 }
 
 .grid-date,.grid-transaction,.grid-balance{
-	@include make-xs-column(2);
+	@include make-xs-column(3);
 	@include make-sm-column(2);
 	@include make-md-column(2);
 	@include make-lg-column(2);
 }
 
 .grid-desc{
-	@include make-xs-column(6);
+	@include make-xs-column(3);
 	@include make-sm-column(6);
 	@include make-md-column(6);
 	@include make-lg-column(6);
 }
 
-@media (min-width: $screen-lg) {}
-@media (max-width: $screen-md-max) and (min-width: $screen-md) {}
-@media (max-width: $screen-sm-max) and (min-width: $screen-sm) {}
+.navbar-brand{
+	font-size: 40px;
+    margin: 15px 0;
+}
+
+.navbar{
+	margin-bottom:0px;
+}
+
+.navbar-default{
+	@include color-gradient($top-header-color, $btm-header-color);
+	border: 0px;
+	@include border-radius(0px);
+	
+	.navbar-brand{
+		color:$white;
+		&:hover{
+			color:$menu-hover;
+		}
+	}
+	.navbar-nav>li>a{
+		color:$white;
+		cursor:pointer;
+		&:hover{
+			color:$menu-hover;
+		}
+		
+		&.active{
+			color:$menu-active;
+		}
+	}
+}
+
+@media (min-width: $screen-lg) {
+	.navbar-nav>li{
+		font-size: 24px;
+		padding-top: 18px;
+	}
+}
+@media (max-width: $screen-md-max) and (min-width: $screen-md) {
+	.navbar-nav>li{
+		font-size: 22px;
+		padding-top: 18px;
+	}
+}
+@media (max-width: $screen-sm-max) and (min-width: $screen-sm) {
+	.navbar-nav>li{
+		font-size: 20px;
+		padding-top: 18px;
+	}
+}
 @media (max-width: $screen-xs-max) {
-	.top-banner{
-		.top-menu{
-			font-size: 16px;
-			padding-top: 30px;
+	.navbar-toggle{
+		margin-top:23px;
+	}
+	
+	.sub-heading-2{
+		height: 158px;
+		.grid-account{
+			margin-bottom:10px;
 		}
-		.sub-menu-xs{
-			@include color-gradient($top-header-color, $btm-header-color);
-			position:absolute;
-			top: 80px;
+		.grid-balance{
+			text-align:left;
 		}
-	}	
+	}
+	
+	.search-box{
+		max-width:195px;
+	}
+	
+	.table-header-container{
+		.table-head{
+			font-size:12px;
+		}
+	}
+	
+	.transaction{
+		font-size:12px;
+	}
+	
+	.force-pad-left{
+		padding-left:0px;
+	}
 }
