@@ -11,12 +11,18 @@
 	box-shadow: $h-shadow $v-shadow $blur $color;
 }
 
-@mixin btn-gradient($top-btn-color, $btm-btn-color){
-	background-image: -webkit-linear-gradient(top, $top-btn-color, $btm-btn-color);
-	background-image: -moz-linear-gradient(top, $top-btn-color, $btm-btn-color);
-	background-image: -ms-linear-gradient(top, $top-btn-color, $btm-btn-color);
-	background-image: -o-linear-gradient(top, $top-btn-color, $btm-btn-color);
-	background-image: linear-gradient(to bottom, $top-btn-color, $btm-btn-color);
+@mixin color-gradient($top-color, $btm-color){
+	background-image: -webkit-linear-gradient(top, $top-color, $btm-color);
+	background-image: -moz-linear-gradient(top, $top-color, $btm-color);
+	background-image: -ms-linear-gradient(top, $top-color, $btm-color);
+	background-image: -o-linear-gradient(top, $top-color, $btm-color);
+	background-image: linear-gradient(to bottom, $top-color, $btm-color);
+}
+
+@mixin transaction-border($size, $type, $color){
+	border-bottom: $size $type $color;
+    border-left: $size $type $color;
+    border-right: $size $type $color;
 }
 
 @mixin padding-search($vertical, $horisontal ){

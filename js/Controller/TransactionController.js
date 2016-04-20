@@ -5,7 +5,10 @@ var TransactionController= function($scope){
 	$scope.availBal = '$7,200,200.00';
 	$scope.curBal = '$7,231,200.00';
 	
+	// Flag to signal whether user can load more data or not
 	var loadMoreFlag = 0;
+	
+	$scope.searchTerm = '';
 	
 	var dummyData1 = [
 		{
@@ -64,7 +67,7 @@ var TransactionController= function($scope){
 			Description: 'Initial deposit',
 			Transaction: '$4500.00',
 			Balance: '$4500.00'
-		}
+		} 
 	];
 	
 	$scope.transactions = dummyData1;
@@ -76,6 +79,8 @@ var TransactionController= function($scope){
 	}
 	
 	$scope.loadMore = function(){
+		// Use a flag to load. 
+		// In real world scenario, we can use $http.get to get the data and pass the date and number of data needed as parameters
 		if(loadMoreFlag !== 1){
 			$.merge($scope.transactions, dummyData2); 
 			loadMoreFlag = 1;

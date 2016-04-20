@@ -5,64 +5,64 @@
 <link href="../css/main.min.css" rel="stylesheet">
 </head>
 <body ng-controller="TransactionController">
-	<div class="row">
-		<div class="col-lg-6">
+	<div class="top-banner">
+		<div class="col-lg-6 header-padding header-style">
 			Just-A-Bank
 		</div>
-		<div class="col-lg-2 text-center">
+		<div class="col-lg-2 text-center top-menu active">
 			Accounts
 		</div>
-		<div class="col-lg-2 text-center">
+		<div class="col-lg-2 text-center top-menu">
 			Menu 1
 		</div>
-		<div class="col-lg-2 text-center">
+		<div class="col-lg-2 text-center top-menu">
 			Menu 2
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-lg-12">
+	<div class="sub-heading-1">
+		<div class="col-lg-12 header-padding">
 			Transaction History
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-lg-6">
-			<span>Savings Account</span>
+	<div class="sub-heading-2">
+		<div class="col-lg-6 header-padding">
+			<span class="special-char">Savings Account</span>
 			<br/>
 			<span>{{accountNo}}</span>
 		</div>
 		<div class="col-lg-3 text-center">
 			<span>Current Balance</span>
 			<br/>
-			<span>{{curBal}}</span>
+			<span class="special-char">{{curBal}}</span>
 		</div>
 		<div class="col-lg-3 text-center">
 			<span>Available Balance<span>
 			<br/>
-			<span>{{availBal}}</span>
+			<span class="special-char">{{availBal}}</span>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-lg-12">
+	<div class="sub-heading-3">
+		<div class="col-lg-12 header-padding">
 			<span>Search for description</span>
 			<br/>
 			<input type="text" class="form-control search-box" ng-model="searchTerm" /> <span class="search-btn" ng-click="searchDesc()">Search</span>
 		</div>
 	</div>
 	<div class="container">
-		<div class="col-lg-12">
-			<div class="col-lg-2">Date</div>
-			<div class="col-lg-6">Description</div>
-			<div class="col-lg-2">Debit/Credit</div>
-			<div class="col-lg-2">Balance</div>
+		<div class="col-lg-12 table-header-container">
+			<div class="col-lg-2 table-head">Date</div>
+			<div class="col-lg-6 table-head">Description</div>
+			<div class="col-lg-2 table-head">Debit/Credit</div>
+			<div class="col-lg-2 table-head">Balance</div>
 		</div>
-		<div class="col-lg-12" ng-repeat="transaction in transactions">
+		<div class="col-lg-12 transaction" ng-style="$index === 0 ? {'border-top':'1px solid #D8D7D7'} : {}" ng-repeat="transaction in transactions track by $index">
 			<div class="col-lg-2">{{transaction.Date}}</div>
 			<div class="col-lg-6">{{transaction.Description}}</div>
 			<div class="col-lg-2">{{transaction.Transaction}}</div>
 			<div class="col-lg-2">{{transaction.Balance}}</div>
 		</div>
 		
-		<div class="col-lg-12 text-center" ng-click="loadMore()">
+		<div class="col-lg-12 text-center search-btn load-more" ng-click="loadMore()">
 			Load more transaction
 		</div>
 

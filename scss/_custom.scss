@@ -1,7 +1,3 @@
-div{
-	border:1px solid black;
-}
-
 .search-box{
 	max-width: $search-width;
     display: $inline-block;
@@ -10,10 +6,89 @@ div{
 .search-btn{
 	margin-left: $left-margin-search;
 	display: $inline-block;
-	border:1px solid black;
 	@include border-radius(5px);
 	@include padding-search(6px,15px);
+	background-color: $btn-default-color;
 	cursor:pointer;
+	color:$white;
+	
+	&.load-more{
+		margin-top:10px;
+		margin-left:0px;
+	}
+}
+
+.header-padding{
+	padding-left:$header-pad-left;
+}
+
+.top-banner{
+	@include color-gradient($top-header-color, $btm-header-color);
+	height:$header-height;
+	color:$white; 
+	
+	.header-style{
+		font-size:40px;
+		padding-top:$header-padding-top;
+		height:$header-height;
+	}
+	
+	.top-menu{
+		font-size:24px;
+		padding-top:$menu-padding-top;
+		height:$header-height;
+		cursor:pointer;
+		&.active, &:hover{
+			@include color-gradient($top-menu-color, $btm-menu-color);
+		}
+	}
+}
+
+.sub-header{
+	height: 45px;
+    padding-top: 5px;
+    border-bottom: 1px solid $default-border-color;
+	color: #969696;
+}
+
+.sub-heading-1{
+	@extend .sub-header;
+    font-size: 24px;
+}
+
+.sub-heading-2{
+	@extend .sub-header;
+	height:56px;
+}
+
+.sub-heading-3{
+	@extend .sub-header;
+	height:68px;
+}
+
+
+.special-char{
+	font-weight: 600;
+    font-size: 18px;
+}
+
+.table-header-container{
+	margin:20px 0 10px 0;
+	.table-head{
+		font-weight:600;
+		font-size:14px;
+	}
+}
+
+
+.transaction{
+	@include transaction-border(1px, solid, $default-border-color);
+	padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.transaction:first-child{
+	border-top:1px solid $default-border-color;
 }
 
 @media (min-width: $screen-lg) {}
