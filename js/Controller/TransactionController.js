@@ -5,6 +5,8 @@ var TransactionController= function($scope){
 	$scope.availBal = '$7,200,200.00';
 	$scope.curBal = '$7,231,200.00';
 	
+	var loadMoreFlag = 0;
+	
 	var dummyData1 = [
 		{
 			Date: '21/04/2016',
@@ -44,11 +46,39 @@ var TransactionController= function($scope){
 		}
 	];
 	
+	var dummyData2 = [
+		{
+			Date: '20/03/2016',
+			Description: 'Win Lottery',
+			Transaction: '$100.00',
+			Balance: '$4350.00'
+		},
+		{
+			Date: '15/03/2016',
+			Description: 'Pay rent',
+			Transaction: '-$250.00',
+			Balance: '$4250.00'
+		},
+		{
+			Date: '05/03/2016',
+			Description: 'Initial deposit',
+			Transaction: '$4500.00',
+			Balance: '$4500.00'
+		}
+	];
+	
 	$scope.transactions = dummyData1;
 	
 	$scope.searchDesc = function(){
 		$scope.transactions = dummyData1;
 		var searchResult = $.grep($scope.transactions, function (item) { return item.Description.toLowerCase().indexOf($scope.searchTerm) >= 0 });
 		$scope.transactions = searchResult;
+	}
+	
+	$scope.loadMore = function(){
+		if(loadMoreFlag !== 1){
+			$.merge($scope.transactions, dummyData2); 
+			loadMoreFlag = 1;
+		}
 	}
 }
