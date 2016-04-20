@@ -1,0 +1,22 @@
+div{
+	border:1px solid black;
+}
+
+.search-box{
+	max-width: $search-width;
+    display: $inline-block;
+}
+
+.search-btn{
+	margin-left: $left-margin-search;
+	display: $inline-block;
+	border:1px solid black;
+	@include border-radius(5px);
+	@include padding-search(6px,15px);
+	cursor:pointer;
+}
+
+@media (min-width: $screen-lg) {}
+@media (max-width: $screen-md-max) and (min-width: $screen-md) {}
+@media (max-width: $screen-sm-max) and (min-width: $screen-sm) {}
+@media (max-width: $screen-xs-max) {}

@@ -5,6 +5,6 @@ var app = angular.module('transaction-app',[]);
  * This can be overcome by deploying the application to a web server, however it is not going to be  
  * practical when the user try to run the application directly from the html file.
  */
-//app.directive('puzzleSection', [PuzzleSection]);
+//app.directive('transactionSection', [TransactionSection]);
 
 app.controller('TransactionController', ['$scope', TransactionController]);

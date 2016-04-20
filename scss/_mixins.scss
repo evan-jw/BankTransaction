@@ -18,3 +18,7 @@
 	background-image: -o-linear-gradient(top, $top-btn-color, $btm-btn-color);
 	background-image: linear-gradient(to bottom, $top-btn-color, $btm-btn-color);
 }
+
+@mixin padding-search($vertical, $horisontal ){
+	padding: $vertical $horisontal;
+}

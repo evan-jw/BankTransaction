@@ -5,9 +5,70 @@
 <link href="../css/main.min.css" rel="stylesheet">
 </head>
 <body ng-controller="TransactionController">
-	<div>
-		{{test}}
+	<div class="row">
+		<div class="col-lg-6">
+			Just-A-Bank
+		</div>
+		<div class="col-lg-2 text-center">
+			Accounts
+		</div>
+		<div class="col-lg-2 text-center">
+			Menu 1
+		</div>
+		<div class="col-lg-2 text-center">
+			Menu 2
+		</div>
 	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			Transaction History
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6">
+			<span>Savings Account</span>
+			<br/>
+			<span>{{accountNo}}</span>
+		</div>
+		<div class="col-lg-3 text-center">
+			<span>Current Balance</span>
+			<br/>
+			<span>{{curBal}}</span>
+		</div>
+		<div class="col-lg-3 text-center">
+			<span>Available Balance<span>
+			<br/>
+			<span>{{availBal}}</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<span>Search for description</span>
+			<br/>
+			<input type="text" class="form-control search-box" ng-model="searchTerm" /> <span class="search-btn">Search</span>
+		</div>
+	</div>
+	<div class="container">
+		<div class="col-lg-12">
+			<div class="col-lg-2">Date</div>
+			<div class="col-lg-6">Description</div>
+			<div class="col-lg-2">Debit/Credit</div>
+			<div class="col-lg-2">Balance</div>
+		</div>
+		<div class="col-lg-12" ng-repeat="transaction in transactions">
+			<div class="col-lg-2">{{transaction.Date}}</div>
+			<div class="col-lg-6">{{transaction.Description}}</div>
+			<div class="col-lg-2">{{transaction.Transaction}}</div>
+			<div class="col-lg-2">{{transaction.Balance}}</div>
+		</div>
+		
+		<div class="col-lg-12 text-center">
+			Load more transaction
+		</div>
+
+		
+	</div>
+	
 <script src="../js/build/production.min.js"></script>
 </body>
 </html>
